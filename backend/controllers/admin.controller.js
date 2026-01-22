@@ -1,0 +1,5 @@
+getAllUsers
+
+getReports
+
+deletePostByAdmin
