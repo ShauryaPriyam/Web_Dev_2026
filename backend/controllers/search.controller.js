@@ -1,0 +1,3 @@
+searchUsers
+
+searchPosts

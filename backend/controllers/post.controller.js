@@ -1,0 +1,7 @@
+createPost
+
+getAllPosts
+
+getPostById
+
+deletePost
