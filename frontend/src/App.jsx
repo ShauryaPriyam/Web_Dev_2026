@@ -1,5 +1,6 @@
 import React from 'react'
 import './app.css'
+import './index.css'
 
 const App = () => {
   return (
