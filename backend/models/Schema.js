@@ -77,10 +77,31 @@ const Notif = model("Notif", notifSchema);
 // this is intentionally written as Notif instead of Notification because
 // there is a Notification api in javascript for some browsers
 
+const reportSchema = new Schema({
+    //postId/answerId, reporterId, reason, status
+    itemId : Schema.Types.ObjectId,
+    type : {
+        type : String,
+        enum : ["post", "answer"]
+    },
+    reporterId : {
+        type : Schema.Types.ObjectId,
+        ref : "User"
+    },
+    status : {
+        type : String,
+        enum : ["resolved","pending"],
+        default : "pending"
+    },
+    reason : String
+})
+const Report = model("Report", reportSchema)
+
 
 export {
     User,
     Post,
     Answer,
-    Notif
+    Notif,
+    Report
 }
