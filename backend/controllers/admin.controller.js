@@ -1,4 +1,6 @@
-import { Post, Report, User } from "../models/Schema.js" 
+import Report from "../models/reportSchema.js" 
+import User from "../models/userSchema.js"
+import Post from "../models/postSchema.js"
 
 /**
  * categorised users according to role, to provide more controll

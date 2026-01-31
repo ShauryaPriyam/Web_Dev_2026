@@ -1,4 +1,4 @@
-import { Post } from "../models/Schema.js";
+import { Post } from "../models/postSchema.js";
 
 const deletePost = async (req, res) => {
     const postId = req.params.postId;
