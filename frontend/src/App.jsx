@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -7,6 +7,7 @@ import VerifyResetCode from "./pages/VerifyResetCode";
 import ResetPassword from "./pages/ResetPassword";
 import SSOCallback from "./pages/SSOCallback";
 import Home from "./pages/Home";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
 
 function App() {
   return (
