@@ -18,4 +18,4 @@ const postSchema = new Schema({
 })
 const Post = model("Post", postSchema);
 
-export default Post;
+export { Post };

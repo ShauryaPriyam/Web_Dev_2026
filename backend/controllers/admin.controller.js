@@ -39,16 +39,47 @@ const deletePostByAdmin = async (req,res) =>{
     if(!deleted){
         return res.json({
             error : true,
-            message : "invalid postId"
+            message : "invalid postId",
         })
     }
     res.json({
-        message : "deleted successfully"
+        message : "deleted successfully",
+    })
+}
+
+const updateUserRole = async (req, res) => {
+    const targetId = req.body.targetId;
+    const role = req.body.role;
+    const updated = await User.findByIdAndUpdate(targetId, { role })
+    if(!updated){
+        return res.json({
+            error : true,
+            message : "could not find a user with that ID",
+        })
+    }
+    res.json({
+        message : "updated successfully"
+    })
+}
+
+const deleteUser = async (req,res) => {
+    const targetId = req.body.targetId;
+    const deleted = await User.findByIdAndDelete(targetId);
+    if(!deleted){
+        return res.json({
+            error : true,
+            message : "user not found"
+        })
+    }
+    res.json({
+        message : "user deleted successfully"
     })
 }
 
 export {
   getAllUsers,
   getReports,
-  deletePostByAdmin
+  deletePostByAdmin,
+  updateUserRole,
+  deleteUser
 }
