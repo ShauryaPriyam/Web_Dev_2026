@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input {
+  @apply w-full px-3 py-2 rounded-md bg-zinc-800 border border-zinc-700 focus:outline-none focus:ring-1 focus:ring-blue-500;
+}
+
+.btn-primary {
+  @apply w-full py-2 bg-[#00ADB5] rounded-md hover:bg-[#00ADB5]/40 transition ;
+}
+
+.btn-outline {
+  @apply w-full py-2 border border-zinc-600 rounded-md hover:bg-[#00ADB5] transition;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color:#222831 ; /* black */
+  color: #fff;
+}
+
