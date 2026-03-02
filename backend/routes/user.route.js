@@ -13,12 +13,12 @@ import {
 import { protectRoute } from "../middleware/auth.middleware.js";
 import { arcjetProtection } from "../middleware/arcjet.middleware.js";
 
-const router = express.Router();
-router.use(arcjetProtection);
+const userRouter = express.Router();
+userRouter.use(arcjetProtection);
 
-router.get("/:userId", protectRoute, getUserProfile);
-router.put("/:userId", protectRoute, updateUserProfile);
-router.post("/follow/:userId", protectRoute, followUser);
-router.post("/unfollow/:userId", protectRoute, unfollowUser);
+userRouter.get("/:userId", protectRoute, getUserProfile);
+userRouter.put("/:userId", protectRoute, updateUserProfile);
+userRouter.post("/follow/:userId", protectRoute, followUser);
+userRouter.post("/unfollow/:userId", protectRoute, unfollowUser);
 
-export default router;
+export default userRouter

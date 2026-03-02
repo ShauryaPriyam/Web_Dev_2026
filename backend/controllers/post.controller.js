@@ -32,17 +32,21 @@ const createPost = async (req, res) => {
 
             authorRef: req.userId // needs to be set by a middleware
         })
-    } catch {
-        res.json({
+    } catch(err) {
+        console.log(err);
+        return res.json({
             error: true,
             message: "an error occured in creation of the post"
         })
     }
+    res.json({
+        message : "posted successfully"
+    })
 }
 
 const getPostById = async (req, res) => {
     const postId = req.params.postId;
-    const p = await Post.findById(postId);
+    const p = await Post.findById(postId)?.populate({ path : "authorRef", select : "username name _id"});
     if (!p) {
         return res.json({
             error: true,

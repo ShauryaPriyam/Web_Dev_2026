@@ -6,6 +6,7 @@ const userSchema = new Schema({
         unique : true,
         required : true
     },
+    clerkUserId : String,
     email : String,
     passwordHash : {
         type : String,
