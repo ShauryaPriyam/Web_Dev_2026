@@ -1,10 +1,13 @@
 import React from 'react'
+import QuestionCard from '../components/QuestionCard'
 
 const HomePage = () => {
 
   
-  return (
+  return (<>
     <div>HomePage</div>
+    {/* <QuestionCard /> */}
+    </>
   )
 }
 
