@@ -8,11 +8,13 @@ import ResetPassword from "./pages/ResetPassword";
 import SSOCallback from "./pages/SSOCallback";
 import Home from "./pages/Home";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import Post from "./pages/Postpage";
 
 function App() {
   return (
     <Routes>
       
+      <Route path="/post" element={<Post />} />
       <Route
         path="/"
         element={
