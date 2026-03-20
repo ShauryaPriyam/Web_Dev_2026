@@ -8,14 +8,14 @@ import VerifyResetCode from "./pages/VerifyResetCode";
 import ResetPassword from "./pages/ResetPassword";
 import SSOCallback from "./pages/SSOCallback";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import Landingpage from "./pages/landingpage";
 
 function App() {
   return (
     <Routes>
       
 
-      <Route path="/about" element={<About/>}/>
+      <Route path="/landingpage" element={<Landingpage/>}/>
       <Route
         path="/"
         element={
@@ -74,3 +74,5 @@ function App() {
 }
 
 export default App;
+
+

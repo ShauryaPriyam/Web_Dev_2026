@@ -41,6 +41,7 @@ html, body {
 }
 
 .heartbeat {
-  animation: heartbeat 2.5s infinite ease-in-out;
+  animation: heartbeat 2.5s infinite ease-in-out ;
+  
 }
 
