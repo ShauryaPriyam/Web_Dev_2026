@@ -13,7 +13,7 @@ const Login = () => {
     if (!isLoaded) return;
     try {
       await signIn.create({ identifier: email, password });
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       alert(err.errors?.[0]?.message);
     }
@@ -23,7 +23,7 @@ const Login = () => {
     await signIn.authenticateWithRedirect({
       strategy: "oauth_google",
       redirectUrl: "/sso-callback",
-      redirectUrlComplete: "/",
+      redirectUrlComplete: "/home",
     });
   };
 
