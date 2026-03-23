@@ -1,15 +1,13 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import Contacts from "./pages/Contacts";
-import ChatLayout from "./pages/ChatLayout";
+import React from 'react'
+import './app.css'
+import './index.css'
 
-function App() {
+const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Contacts />} />
-      <Route path="/chat/:id" element={<ChatLayout />} />
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
-  );
+    <div className='demo'>
+      Your Home Page
+    </div>
+  )
 }
 
-export default App;
+export default App
