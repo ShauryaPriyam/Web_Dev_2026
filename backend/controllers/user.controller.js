@@ -14,17 +14,76 @@ const getUserProfile = async (req, res) => {
     }
 }
 
-const updateUserProfile = (req,res) => {
+const updateUserProfile = async (req, res) => {
+    const { userId } = req.params;
+    const { username, role } = req.body;
+    try {
+        const user = await User.findByIdAndUpdate(userId, { username, role }, { new: true });
+        res.json({ 
+            error: false, 
+            message: "User profile updated successfully", 
+            user 
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            error: true, 
+            message: error.message 
+        });
+    }
+};
 
-}
+const followUser = async (req, res) => {
+    const { userId } = req.params;
+    const { followerId } = req.body;
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ 
+                error: true, 
+                message: "User not found" 
+            });
+        }
+        user.followers.push(followerId);
+        await user.save();
+        res.json({ 
+            error: false,
+            message: "User followed successfully" 
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            error: true, 
+            message: error.message 
+        });
+    }
+};
 
-const followUser = (req,res) => {
+const unfollowUser = async (req, res) => {
+    const { userId } = req.params;
+    const { followerId } = req.body;
 
-}
+    try {
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ 
+                error: true, 
+                message: "User not found" 
+            });
+        }
 
-const unfollowUser = (req,res) => {
+        user.followers = user.followers.filter(id => id.toString() !== followerId);
+        await user.save();
 
-}
+        res.json({ 
+            error: false, 
+            message: "User unfollowed successfully" 
+        });
+    } catch (error) {
+        res.status(500).json({ 
+            error: true, 
+            message: error.message 
+        });
+    }
+};
 
 export {
     getUserProfile,

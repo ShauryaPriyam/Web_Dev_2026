@@ -8,10 +8,7 @@ const userSchema = new Schema({
     },
     clerkUserId : String,
     email : String,
-    passwordHash : {
-        type : String,
-        required : true
-    },
+    // no need to store password as we are using clerk for authentication
     role : {
         type : String,
         enum : ["user", "admin", "moderator"],

@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { ClerkExpressRequireAuth } from "@clerk/clerk-sdk-node";
-import { signup, login } from "../controllers/auth.controller.js";
+import { clerkMiddleware } from "@clerk/express";
+import { signup, login, handleBoth } from "../controllers/auth.controller.js";
 
 const authRoute = Router();
 
-authRoute.post("/signup", ClerkExpressRequireAuth, signup);
-authRoute.post("/login", ClerkExpressRequireAuth, login)
+authRoute.use(clerkMiddleware())
 
+authRoute.post("/signup", signup);
+authRoute.post("/login", login);
+authRoute.post("/",handleBoth);
 export { authRoute }
