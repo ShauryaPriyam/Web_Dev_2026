@@ -1,5 +1,6 @@
 import { useSignUp } from "@clerk/clerk-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthCard from "../components/AuthCard";
 
 const Signup = () => {
@@ -8,8 +9,10 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const navigate = useNavigate();
   const signup = async () => {
     if (!isLoaded) return;
+    
 
     if (password !== confirmPassword) {
       alert("Passwords do not match");
@@ -22,11 +25,8 @@ const Signup = () => {
         password,
       });
 
-      await signUp.prepareEmailAddressVerification({
-        strategy: "email_code",
-      });
-
-      alert("Verification code sent to your email");
+      await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
+      navigate("/verify-email");
     } catch (err) {
       alert(err?.errors?.[0]?.message);
     }

@@ -8,6 +8,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import VerifyResetCode from "./pages/VerifyResetCode";
 import ResetPassword from "./pages/ResetPassword";
 import SSOCallback from "./pages/SSOCallback";
+import VerifyEmail from "./pages/VerifyEmail";
 import Home from "./pages/Home";
 import Landingpage from "./pages/landingpage";
 
@@ -60,6 +61,10 @@ function App() {
           </SignedOut>
         }
       />
+
+
+
+      <Route path="/verify-email" element={<VerifyEmail />} />
 
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/verify-reset" element={<VerifyResetCode />} />
