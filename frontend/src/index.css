@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .input {
   @apply w-full px-3 py-2 rounded-md bg-zinc-800 border border-zinc-700 focus:outline-none focus:ring-1 focus:ring-blue-500;
 }

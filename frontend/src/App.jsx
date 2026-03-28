@@ -1,5 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
+
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -7,17 +9,17 @@ import VerifyResetCode from "./pages/VerifyResetCode";
 import ResetPassword from "./pages/ResetPassword";
 import SSOCallback from "./pages/SSOCallback";
 import Home from "./pages/Home";
-
 import Landingpage from "./pages/landingpage";
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
 
+
+import "./app.css";
+import "./index.css";
 
 function App() {
   return (
     <Routes>
-      
+      <Route path="/landing" element={<Landingpage />} />
 
-      <Route path="/landing" element={<Landingpage/>}/>
       <Route
         path="/"
         element={
@@ -25,7 +27,6 @@ function App() {
             <SignedIn>
               <Navigate to="/home" />
             </SignedIn>
-
             <SignedOut>
               <Navigate to="/landing" />
             </SignedOut>
@@ -33,7 +34,6 @@ function App() {
         }
       />
 
-      
       <Route
         path="/home"
         element={
@@ -43,12 +43,11 @@ function App() {
         }
       />
 
-      
       <Route
         path="/login"
         element={
           <SignedOut>
-            <Login /> // Landing page component should be rendered here instead
+            <Login />
           </SignedOut>
         }
       />
@@ -62,19 +61,14 @@ function App() {
         }
       />
 
-      
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/verify-reset" element={<VerifyResetCode />} />
       <Route path="/reset-password" element={<ResetPassword />} />
-
       <Route path="/sso-callback" element={<SSOCallback />} />
 
-      
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }
 
 export default App;
-
-

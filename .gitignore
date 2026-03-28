@@ -15,7 +15,3 @@ yarn-error.log*
 
 # OS
 .DS_Store
-
-# Temps
-temp.js
-TODO
