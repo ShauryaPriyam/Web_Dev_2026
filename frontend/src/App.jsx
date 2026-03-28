@@ -1,6 +1,5 @@
+import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { SignedIn, SignedOut } from "@clerk/clerk-react";
-
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -8,14 +7,17 @@ import VerifyResetCode from "./pages/VerifyResetCode";
 import ResetPassword from "./pages/ResetPassword";
 import SSOCallback from "./pages/SSOCallback";
 import Home from "./pages/Home";
+
 import Landingpage from "./pages/landingpage";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
+
 
 function App() {
   return (
     <Routes>
       
 
-      <Route path="/landingpage" element={<Landingpage/>}/>
+      <Route path="/landing" element={<Landingpage/>}/>
       <Route
         path="/"
         element={
@@ -25,7 +27,7 @@ function App() {
             </SignedIn>
 
             <SignedOut>
-              <Navigate to="/login" />
+              <Navigate to="/landing" />
             </SignedOut>
           </>
         }
@@ -46,7 +48,7 @@ function App() {
         path="/login"
         element={
           <SignedOut>
-            <Login />
+            <Login /> // Landing page component should be rendered here instead
           </SignedOut>
         }
       />

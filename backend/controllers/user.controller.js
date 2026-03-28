@@ -1,0 +1,7 @@
+getUserProfile
+
+updateUserProfile
+
+followUser
+
+unfollowUser

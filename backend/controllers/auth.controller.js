@@ -1,0 +1,7 @@
+SignUp
+
+Login
+
+LogOut
+
+updateProfile

@@ -1,0 +1,5 @@
+createCommunity
+
+getCommunities
+
+joinCommunity

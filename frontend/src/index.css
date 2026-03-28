@@ -39,9 +39,17 @@ html, body {
     transform: scale(1);
   }
 }
-
+/* 
 .heartbeat {
   animation: heartbeat 2.5s infinite ease-in-out ;
   
+} */
+
+.heartbeat {
+  transition: transform 0.5s ease;
+}
+
+.heartbeat:hover {
+  transform: scaleX(-1);
 }
 
