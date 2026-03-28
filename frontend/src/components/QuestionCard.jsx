@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const QuestionCard = ( {post} ) => {
   const questionId = post?._id
   return (
-    <Link to={`${questionId}`}>
+    <Link to={`/post/${questionId}`}>
       <article className="bg-darkCard rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow cursor-pointer mb-5 ">
 
         {/* Title */}

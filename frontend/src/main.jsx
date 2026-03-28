@@ -30,7 +30,9 @@ import HomePage from "./pages/HomePage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import EditPage from "./pages/EditPage.jsx";
 import QuestionPage from "./pages/QuestionPage.jsx";
-import PostPage from "./pages/PostPage.jsx";
+import PostPage from "./pages/sendpost.jsx";
+import AllPage from "./pages/allpost.jsx";
+import Allpost from "./pages/allpost.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -56,7 +58,8 @@ const router = createBrowserRouter(
           <Route path="homepage" element={<HomePage />} />
           <Route path="profile/:id" element={<ProfilePage />} />
           <Route path="profile/:id/edit" element={<EditPage />} />
-          <Route path="post" element={<PostPage />} />
+          <Route path="create-post" element={<PostPage />} />
+          <Route path="post" element={<Allpost />} />
           <Route path="post/:id" element={<QuestionPage />} />
         </Route>
       </Route>
