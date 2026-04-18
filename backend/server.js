@@ -1,12 +1,14 @@
 // server/server.js
 import express from "express";
 import cors from "cors";
+import http from "http";
 import postRoutes from "./routes/post.route.js";
 import userRouter from "./routes/user.route.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv"
 import { protectRoute } from "./middleware/auth.middleware.js";
 import { authRoute } from "./routes/auth.route.js";
+import SetupWebSocketServer from "./websocket/index.js";
 
 dotenv.config()
 mongoose.connect(process.env.MONGO_URI);
@@ -32,7 +34,12 @@ app.use("/api/posts",protectRoute, postRoutes);
 // app.use("/api/admin", adminRoutes);
 // app.use("/api/search", searchRoutes);
 
-const PORT = 5000;
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 5000;
+
+const server = http.createServer(app);
+
+SetupWebSocketServer(server);
+
+server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

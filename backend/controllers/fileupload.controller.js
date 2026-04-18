@@ -6,27 +6,19 @@ cloudinary.config({
     api_secret: process.env.SECRET
 });
 
-const fileUpload = async (req, res) => {
-    if (!req.file) {
-        return res.status(400).json({
-            error: true,
-            message: "No file uploaded"
-        });
-    }
-    // Process the uploaded file
 
-    cloudinary.uploader.upload(req.file.path).then(r => {
-        res.json({
-            error: false,
-            message: "File uploaded successfully",
-            url: r.secure_url
-        });
-    }).catch(e => {
-        res.status(500).json({
-            error: true,
-            message: "Error uploading file to Cloudinary",
-        });
-    })
+/**
+ * @note : the file is being piped to the upload stream, so the request should be sent as raw data.
+ */
+const fileUpload = async (req, res) => {
+    const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: 'uploads' },
+        (err, result) => {
+            if (err) return res.status(500).send(err);
+            res.send({error : false,result});
+        }
+    );
+    req.pipe(uploadStream);
 };
 
 export {

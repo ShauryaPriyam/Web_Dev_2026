@@ -127,8 +127,16 @@ const handleBoth = async (req, res) => {
     }
 }
 
+function logout(req, res) {
+    res.clearCookie("token");
+    return res.json({
+        message: "logged out successfully",
+    })
+}
+
 export {
     signup,
     login,
-    handleBoth
+    handleBoth,
+    logout
 }
